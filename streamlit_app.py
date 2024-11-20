@@ -26,6 +26,10 @@ itm_list = st.multiselect('Choose upto 5 fruits'
                           ,max_selections=5)
 time_to_submit = st.button("Submit Order")
 
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+
 if itm_list:
     #st.write('You Selected: ',itm_list)
     ingredients_string =''
